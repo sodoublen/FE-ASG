@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="image/png" href="ImgAssets/Logo.png">
+  <title>About Our Team</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image:  url('ImgAssets/Loginbg.jpg');
+      display: block; /* Ensure the background image covers the entire area */
+      background-size: cover; /* Cover the entire background with the image */
+      background-repeat: no-repeat; /* Prevent the image from repeating */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .team-container {
+      background-color: white; /* Green color */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: black; /* White color for text */
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .left-arrow {
+      left: 10px;
+    }
+
+    .right-arrow {
+      right: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: black; /* White color for text */
+    }
+  </style>
+</head>
+<body>
+<!--Navigation Panel-->
+<div class="elementor-element elementor-element-5ca0546 shrinker e-con-full e-flex e-con e-parent" data-id="5ca0546" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg-custom">
+      <div class="container d-flex align-items-center justify-content-between">
+          <a class="navbar-brand" href="#">
+              <img src="ImgAssets/Logo.png" alt="Logo" height="50">
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link me-5" href="Home.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link me-5" href="AboutUs.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link me-5" href="OurTeam.html">Our Team</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link me-5" href="Reasons.html">Why Protect Earth</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link me-5" href="Tips.html">How to Preserve Earth</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link me-5" href="Campaign.html">Our Campaign</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link me-5" href="Logout.html">Log Out</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link donate-btn" href="Donate.html">Donate Now</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+</div>
+<section>
+<div class="empty-space-behind-nav">
+</div>
+</section>
+
+<div class="team-container">
+  <h2>About Our Team</h2>
+  <img src="" alt="Avatar" class="avatar" id="avatar">
+  <p id="name"></p>
+  <p id="age"></p>
+  <p id="job"></p>
+  <p id="definition"></p>
+
+  <div class="arrow left-arrow" onclick="prevMember()">&#10094;</div>
+  <div class="arrow right-arrow" onclick="nextMember()">&#10095;</div>
+</div>
+
+<script>
+  const teamMembers = [
+    {
+      name: "Kwok Soon",
+      gender: "man",
+      age: 25,
+      job: "Project Manager",
+      definition: "Responsible for planning, organizing, and overseeing environmental conservation projects from inception to completion."
+    },
+    {
+      name: "Grace",
+      gender: "woman",
+      age: 24,
+      job: "Conservation Biologist",
+      definition: "Studies ecosystems, wildlife populations, and biodiversity to develop conservation plans aimed at preserving species and habitats."
+    },
+    {
+      name: "Martin",
+      gender: "man",
+      age: 25,
+      job: "Wildlife Rehabilitation Specialist",
+      definition: "Provides care and rehabilitation for injured or orphaned wildlife, with the goal of releasing them back into their natural habitats."
+    },
+    {
+      name: "Steve",
+      gender: "man",
+      age: 25,
+      job: "Volunteer Coordinator",
+      definition: "Recruits, trains, and manages volunteers for conservation projects, ensuring their effective participation and contribution."
+    }
+  ];
+
+  let currentMemberIndex = 0;
+  const avatarElement = document.getElementById('avatar');
+  const nameElement = document.getElementById('name');
+  const ageElement = document.getElementById('age');
+  const jobElement = document.getElementById('job');
+  const definitionElement = document.getElementById('definition');
+
+  function updateMemberInfo() {
+    const currentMember = teamMembers[currentMemberIndex];
+    avatarElement.src = `AboutTeam/${currentMember.name}_avataaars.png`; // Set avatar image source
+    avatarElement.alt = currentMember.name;
+    nameElement.textContent = currentMember.name;
+    ageElement.textContent = `${currentMember.age} years old`;
+    jobElement.textContent = `Job: ${currentMember.job}`;
+    definitionElement.textContent = currentMember.definition;
+  }
+
+  function nextMember() {
+    currentMemberIndex = (currentMemberIndex + 1) % teamMembers.length;
+    updateMemberInfo();
+  }
+
+  function prevMember() {
+    currentMemberIndex = (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
+    updateMemberInfo();
+  }
+
+  // Initialize with the first team member
+  updateMemberInfo();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+.donationBackground {
+    background-image: url(Campaign&Donation/saveearth.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 90vh; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container styles */
+.donationContainer {
+    position: absolute;
+    top: 30vh;
+    left: 20vh;
+    background-color: white;
+    border-radius: 30px; /* Adjust border-radius as needed */
+    padding: 25px; /* Adjust padding as needed */
+    width: 80vh;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+    text-align: justify;
+    font-size: large;
+}
+.btn-secondary:hover {
+    background-color: #29ee5458; /* Light green color */
+}
+.QRContainer {
+    position: absolute;
+    top: 30vh;
+    right:32vh; 
+    background-color: white;
+    border-radius: 30px; /* Adjust border-radius as needed */
+    padding: 25px; /* Adjust padding as needed */
+    width: 50vh;
+    height: 50vh;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+    text-align: justify;
+    font-size: large;
+}
+.QRContainer img {
+    margin-top: 4vh;
+    width: 100%; /* Set image width to 100% of container width */
+    height: 80%; /* Set image height to 100% of container height */
+    object-fit: fill; /* Ensure the image covers the entire container */
+}
+.QRContainer p {
+    text-align: center;
+}
+.closeButton{
+    position: absolute;
+    top:3vh;
+    right: 4vh;
+    background-color: white;
+}
+.closeButton:hover{
+    background-color: #a6a6a6;
+}

@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ImgAssets/Logo.png">
+    <!-- CSS only -->
+    <link href="HomeStyle.css" rel="stylesheet" type="text/css">
+    <link href="donation.css" rel="stylesheet" type="text/css">
+    <script src="https://www.gstatic.com/earth/embed/api.js?onload=init"></script>
+    <title>Donation Webpage</title>
+    <style>
+        /* Background image styles */
+        
+    </style>
+</head>
+<body>
+    <!--Navigation Panel-->
+    <div class="elementor-element elementor-element-5ca0546 shrinker e-con-full e-flex e-con e-parent" data-id="5ca0546" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
+        <nav class="navbar navbar-expand-lg navbar-light nav-bg-custom">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand" href="#">
+                    <img src="ImgAssets/Logo.png" alt="Logo" height="50">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link me-5" href="Home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-5" href="AboutUs.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-5" href="OurTeam.html">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-5" href="Reasons.html">Why Protect Earth</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-5" href="Tips.html">How to Preserve Earth</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-5" href="Campaign.html">Our Campaign</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-5" href="Logout.html">Log Out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link donate-btn" href="Donate.html">Donate Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+<section>
+    <div class="empty-space-behind-nav">
+    </div>
+</section>
+
+    <div class="donationBackground">
+        <div class="donationContainer">
+            <!-- Your content here -->
+            <h1>Support Nature Conservation: Donate Today!</h1>
+            <p>Join us in protecting our planet's natural treasures by making a donation. Your support funds vital projects like habitat restoration, reforestation, and marine conservation. Together, let's ensure a sustainable future for generations to come. Every donation counts. Make a difference now!</p>
+            <button type="button" class="btn btn-secondary" onclick="showQR()">Donate Now</button>
+        </div>
+    </div>
+
+    <div class="QRContainer" id="QRpicture" hidden="hidden">
+        <button class="closeButton" aria-label="Close" type="button" onclick="hideQR()">&#10006;</button>
+        <img src="ImgAssets/TNGqr.jpg">
+        <p>Scan the QR to pay with Touch'nGO</p>
+    </div>
+
+    <script>
+        function showQR() {
+            document.getElementById("QRpicture").style.display = "block";
+        }
+
+        function hideQR() {
+            document.getElementById("QRpicture").style.display = "none";
+        }
+    </script>
+</body>
+</html>
