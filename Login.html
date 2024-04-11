@@ -93,6 +93,12 @@
         .success-message {
             color: #008000;
             text-align: center;
+            font-size: 25px;
+        }
+
+        .register-message {
+            color: #008000;
+            text-align: center;
         }
         
         .close {
@@ -119,7 +125,6 @@
 <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
     <div id="loginForm" class="form-container">
       <h2>Login</h2>
       <div class="input-wrapper">
@@ -134,7 +139,7 @@
       <button onclick="login()" class="login-btn">Login</button>
       <p id="loginErrorMessage" class="error-message"></p>
       <p id="welcomeMessage" class="success-message"></p>
-      <p id="registerMessage" class="success-message"></p>
+      <p id="registerMessage" class="register-message"></p>
       <a href="forgot_password.html">Forgot your password?</a>
     </div>
   </div>
@@ -150,16 +155,6 @@
   // Open modal
   function openModal() {
     modal.style.display = "block";
-  }
-
-  // Close modal
-  function closeModal() {
-    modal.style.display = "none";
-  }
-
-  // Close modal when clicking on close button
-  closeBtn.onclick = function() {
-    closeModal();
   }
 
   // Close modal when clicking outside of it
@@ -207,10 +202,15 @@
     }
 
     // If both email and password match
-    welcomeMessage.textContent = 'Welcome back!';
+    welcomeMessage.textContent = '👋Welcome back!';
     welcomeMessage.style.display = 'block';
     loginErrorMessage.textContent = ''; // Clear the error message
     loginErrorMessage.style.display = 'none'; // Hide the error message
+
+    // Set a delay of 3 seconds (3000 milliseconds) before redirecting to Home.html
+    setTimeout(function() {
+      window.location.href = "Home.html";
+    }, 3000);  
   }
 
   function togglePassword(inputId) {
@@ -235,6 +235,18 @@
   // Display message for registration
   registerMessage.innerHTML = "No Account? <a href='javascript:goToRegisterPage()'>Go for Register First.</a>";
 </script>
+
+<!--Live Chat-->
+<section>
+  <script type="text/javascript" src="https://popupsmart.com/freechat.js"></script>
+  <script> window.start.init({
+      title: "We are ready to serve you", message: "👋How may we help you? Just send us a message now to get any services you need.",
+      color: "#88c2ae", position: "right", placeholder: "Enter your message", withText: "Write with", viaWhatsapp: "Or write us directly via Whatsapp", gty: "Go to your",
+      awu: "and write us", connect: "Connect now", button: "Click Me!", device: "everywhere", logo: "ImgAssets/Logo.png",
+      person: "ImgAssets/Logo.png", services: [{ "name": "whatsapp", "content": "+60109128106" }]
+      })
+  </script>
+</section>
 
 </body>
 </html>

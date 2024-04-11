@@ -3,15 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="ImgAssets/Logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">4
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- CSS only -->
     <link href="HomeStyle.css" rel="stylesheet" type="text/css">
     <link href="donation.css" rel="stylesheet" type="text/css">
     <script src="https://www.gstatic.com/earth/embed/api.js?onload=init"></script>
     <title>Donation Webpage</title>
-    <style>
-        /* Background image styles */
-        
-    </style>
+    
 </head>
 <body>
     <!--Navigation Panel-->
@@ -52,34 +51,114 @@
             </div>
         </nav>
     </div>
+
 <section>
     <div class="empty-space-behind-nav">
     </div>
 </section>
 
-    <div class="donationBackground">
-        <div class="donationContainer">
-            <!-- Your content here -->
-            <h1>Support Nature Conservation: Donate Today!</h1>
-            <p>Join us in protecting our planet's natural treasures by making a donation. Your support funds vital projects like habitat restoration, reforestation, and marine conservation. Together, let's ensure a sustainable future for generations to come. Every donation counts. Make a difference now!</p>
-            <button type="button" class="btn btn-secondary" onclick="showQR()">Donate Now</button>
+    <div class="row">
+        <div class="column">
+            <h1>Help Earth Savers Organization<br>Protect Earth</h1>
+            <p>We need your support to continues saving Mother Earth.</p>
+            <img src="CampaignImg/groupphoto.jpeg" class="responsive-img">
+        </div>
+        <div class="column">
+            <h2>Donation Form</h2>
+            <form id="donationForm" action="process_donation.php" method="post">
+                <label for="amount">Select Donation Amount:</label>
+                <select id="amount" name="amount">
+                    <option value="10">$10</option>
+                    <option value="25">$25</option>
+                    <option value="50">$50</option>
+                    <option value="100">$100</option>
+                    <option value="custom">Custom Amount</option>
+                </select>
+                <br><br>
+                <label for="customAmount">Custom Donation Amount:</label>
+                <input type="number" id="customAmount" name="customAmount" min="1" step="any" style="display: none;">
+                <br><br>
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="xxxx xxxx xxxx xxxx" required>
+                <br><br>
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                <br><br>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="xxx" required>
+                <br><br> 
+                <button type="submit" id="submitBtn">Submit Donation</button>
+            </form>
         </div>
     </div>
 
-    <div class="QRContainer" id="QRpicture" hidden="hidden">
-        <button class="closeButton" aria-label="Close" type="button" onclick="hideQR()">&#10006;</button>
-        <img src="ImgAssets/TNGqr.jpg">
-        <p>Scan the QR to pay with Touch'nGO</p>
+    <div class="row">
+        <div class="column2">
+            <h1>Why Donate To Earth Savers</h1>
+            <p>When you donate to the Earth Savers Organization, you're not just giving money; you're lending a helping hand to protect our beautiful planet. Your support fuels meaningful projects like restoring habitats, saving endangered species, and fighting climate change. It's about making a real difference in the world we live in, ensuring that our children and grandchildren inherit a healthier, more vibrant Earth. Together, we can be the change-makers our planet needs, showing love and care for our shared home.</p>
+            <img src="CampaignImg/teamwork.jpg" class="responsive-img2">
+        </div>
     </div>
-
-    <script>
-        function showQR() {
-            document.getElementById("QRpicture").style.display = "block";
+<script>
+      // Show custom amount field if "Custom Amount" is selected
+    document.getElementById('amount').addEventListener('change', function() {
+        var customAmountField = document.getElementById('customAmount');
+        customAmountField.style.display = this.value === 'custom' ? 'inline' : 'none';
+        if (this.value !== 'custom') {
+          customAmountField.value = ''; // Clear custom amount if not selected
         }
-
-        function hideQR() {
-            document.getElementById("QRpicture").style.display = "none";
+    });
+    
+    document.getElementById('donationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        // Display "Thank you" message
+        var confirmRedirect = window.alert("Donation Successful. Thank you for your support!! Now redirect back to Home page")
+        if (confirmRedirect = "OK") {
+            // Redirect to Home.html after user confirms
+            window.location.href = "Home.html";
         }
-    </script>
+    });
+</script>
 </body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <!--Logo and Title Section-->
+            <img src="ImgAssets/Logo.png" alt="Logo">
+            <h2>Earth Savers Organization</h2>
+            <p>Empowering Earth's Guardians, <br>Preserving Tomorrow</p>
+        </div>
+
+        <div class="footer-box">
+            <!-- Quick Links Section -->
+            <h3>QUICK LINKS</h3>
+            <ul>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="OutTeam.html">Our Team</a></li>
+                <li><a href="Introduction.html">Introduction</a></li>
+                <li><a href="Reasons.html">Why Protect Earth</a></li>
+                <li><a href="Tips.html">How to Protect Earth</a></li>
+                <li><a href="Campaign.html">Campaigns</a></li>
+                <li><a href="Donations.html">Donations</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <!--Contact Links Section-->
+            <h3>CONTACT US</h3>
+            <a href="tel:+60 10-9128106">+60 10-9128106</a>
+            <a href="mailto:earthsaversorg@outlook.com">earthsaversorg@outlook.com</a>
+            <a>Or visit us at: 194-208A Jln Pahang Kuala Lumpur<br>53000 Kuala Lumpur, Malaysia</a>
+            <div class="social">
+                <a href="https://www.facebook.com/"><i class='bx bxl-facebook'></i></a>
+                <a href="https://twitter.com/"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.instagram.com/"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p class="copyright">Earth Savers Organization © [2024] Earth Savers Organization. All rights reserved.</p>
+        <a class="backToTop">Back to Top</a>
+    </div>
+</footer>
 </html>

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/902d5914-b18d-4932-8199-b39a5ef1a403/resourceGroups/UCCD2223-sthRg/providers/Microsoft.Web/sites/UCCD2223-Space-Missions",
+    "appService.deploySubpath": "."
+}

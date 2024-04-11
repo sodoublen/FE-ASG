@@ -28,7 +28,7 @@ body {
 .navbar-nav {
     list-style: none; /* Remove default list styling */
     padding: 0; /* Remove default padding */
-    margin-left: -30px; /* Remove default margin */
+    margin-left: -10px; /* Remove default margin */
     background-color: #42784e; /* Change background color to transparent */
     width: 120%; /* Ensure the navigation bar spans the full width */
     border: 1px;
@@ -220,6 +220,7 @@ img {
     background-color:#314f36;
     color: white;
     border-radius: 5px;
+    font-family: "Poppins", sans-serif;
 }
 
 /*Section 2: Facts*/
@@ -582,7 +583,10 @@ img {
     transition: background 0.2s;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    color: white;
+    text-decoration: underline;
+    color: darkolivegreen;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 /*Window Pop Up*/
@@ -648,18 +652,3 @@ img {
 .gradient-bg {
     background: linear-gradient(to right, #74ebc5, #ACB6E5);
 }
-
-.attractive-link {
-    font-weight: 600;
-    transition: all 0.3s;
-    text-decoration: none;
-    color: hsl(0, 0%, 93%);
-}
-
-.attractive-link:hover {
-    background-color: #7ea1e8;
-    border-radius: 5px;
-    color: #ffffff;
-    text-decoration: none; 
-}
-

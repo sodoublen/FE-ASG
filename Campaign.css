@@ -17,10 +17,12 @@
     width: 300px;
   }
   .column p{
+    font-family: 'Poppin', sans-serif;
     font-size: 20px;
     text-indent: 80px;
   }
   .column h1{
+    font-family: 'Poppin', sans-serif;
     color: white;
     text-decoration-line: underline;
     text-align: left;
@@ -50,12 +52,14 @@
     justify-content: center; /* Horizontal centering */
     align-items: center; /* Vertical centering */
     color: white;
+    margin-top: 10px;
 }
 .greenbackground-content {
     background-color: #141415a5;
     border-radius: 15px;
     padding: 20px;
     color: white;
+    font-family: 'Poppin', sans-serif;
     text-align: center;
     font-size: 1.3vw ;
 }
@@ -78,6 +82,7 @@
 }
 .divider {
     width: 100%;
+    font-family: 'Poppin', sans-serif;
     text-align: center; /* Optional: Centers the image horizontally */
 }
 

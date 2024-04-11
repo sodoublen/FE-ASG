@@ -77,11 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+    backToTopButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default anchor behavior
+        document.body.scrollIntoView({behavior: "smooth"}); // Scroll to the top of the body
     });
 });
 //
@@ -104,3 +102,4 @@ let checkCookie = document.cookie.indexOf("Cookie=iProperty"); //checking our co
 //if cookie is set then hide the cookie box else show it
 checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
 //
+
