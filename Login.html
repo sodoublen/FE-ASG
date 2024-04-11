@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="image/png" href="ImgAssets/Logo.png">
+  <title>User Login</title>
+  <style>
+        body {
+          font-family: "Poppins", sans-serif;
+            background-image:  url('ImgAssets/Loginbg.jpg');
+            display: block; /* Ensure the background image covers the entire area */
+            background-size: cover; /* Cover the entire background with the image */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .modal-content {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 300px;
+        }
+        
+        h2 {
+            margin-top: 0;
+            font-size: 24px;
+            text-align: center;
+            color: #008000; /* Green color */
+        }
+        
+        .form-container {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #008000; /* Green color */
+        }
+        
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 30px);
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .show-password-btn {
+            border: 1px solid #ccc;
+            background-color: #f2f2f2;
+            color: #008000; /* Green color */
+            cursor: pointer;
+            font-size: 14px;
+            padding: 8px;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        .show-password-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #008000; /* Green color */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            background-color: #006400; /* Darker shade of green on hover */
+        }
+        
+        .error-message {
+            color: #ff0000;
+            text-align: center;
+        }
+        
+        .success-message {
+            color: #008000;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .register-message {
+            color: #008000;
+            text-align: center;
+        }
+        
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            color: #008000; /* Green color */
+        }
+        
+        .close:hover {
+            color: #006400; /* Darker shade of green on hover */
+        }
+
+        #registerMessage {
+            text-align: left;
+            margin-top: 10px;
+        }
+  </style>
+</head>
+<body>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div id="loginForm" class="form-container">
+      <h2>Login</h2>
+      <div class="input-wrapper">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" name="loginEmail" required>
+      </div>
+      <div class="input-wrapper">
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+        <button class="show-password-btn" onclick="togglePassword('loginPassword')">Show</button>
+      </div>
+      <button onclick="login()" class="login-btn">Login</button>
+      <p id="loginErrorMessage" class="error-message"></p>
+      <p id="welcomeMessage" class="success-message"></p>
+      <p id="registerMessage" class="register-message"></p>
+      <a href="forgot_password.html">Forgot your password?</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  var loginErrorMessage = document.getElementById('loginErrorMessage');
+  var welcomeMessage = document.getElementById('welcomeMessage');
+  var registerMessage = document.getElementById('registerMessage');
+  var modal = document.getElementById("myModal");
+  var closeBtn = document.getElementsByClassName("close")[0];
+
+  // Open modal
+  function openModal() {
+    modal.style.display = "block";
+  }
+
+  // Close modal when clicking outside of it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+
+  function login() {
+    var userEmail = document.getElementById('loginEmail').value;
+    var userPassword = document.getElementById('loginPassword').value;
+    var storedEmail = localStorage.getItem('userEmail');
+    var storedPassword = localStorage.getItem('userPassword');
+    var registered = localStorage.getItem('registered');
+
+    if (!registered) {
+      loginErrorMessage.textContent = 'You haven\'t registered, please register first.';
+      loginErrorMessage.style.display = 'block';
+      welcomeMessage.style.display = 'none'; // Hide welcome message if user is not registered
+      return;
+    }
+
+    var missingFields = [];
+
+    if (!userEmail) {
+      missingFields.push('Email');
+    }
+    if (!userPassword) {
+      missingFields.push('Password');
+    }
+
+    if (missingFields.length > 0) {
+      loginErrorMessage.textContent = 'Please enter your ' + missingFields.join(' and ') + '.';
+      loginErrorMessage.style.display = 'block';
+      welcomeMessage.style.display = 'none'; // Hide welcome message if any fields are missing
+      return;
+    }
+
+    if (userEmail !== storedEmail || userPassword !== storedPassword) {
+      loginErrorMessage.textContent = 'Your Email or Password is wrong, please enter again.';
+      loginErrorMessage.style.display = 'block';
+      welcomeMessage.style.display = 'none'; // Hide welcome message if login fails
+      return;
+    }
+
+    // If both email and password match
+    welcomeMessage.textContent = '👋Welcome back!';
+    welcomeMessage.style.display = 'block';
+    loginErrorMessage.textContent = ''; // Clear the error message
+    loginErrorMessage.style.display = 'none'; // Hide the error message
+
+    // Set a delay of 3 seconds (3000 milliseconds) before redirecting to Home.html
+    setTimeout(function() {
+      window.location.href = "Home.html";
+    }, 3000);  
+  }
+
+  function togglePassword(inputId) {
+    var passwordInput = document.getElementById(inputId);
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+
+  // Open modal when the page loads
+  window.onload = function() {
+    openModal();
+  }
+
+  // Function to direct users to register page
+  function goToRegisterPage() {
+    window.location.href = "Register.html";
+  }
+
+  // Display message for registration
+  registerMessage.innerHTML = "No Account? <a href='javascript:goToRegisterPage()'>Go for Register First.</a>";
+</script>
+
+<!--Live Chat-->
+<section>
+  <script type="text/javascript" src="https://popupsmart.com/freechat.js"></script>
+  <script> window.start.init({
+      title: "We are ready to serve you", message: "👋How may we help you? Just send us a message now to get any services you need.",
+      color: "#88c2ae", position: "right", placeholder: "Enter your message", withText: "Write with", viaWhatsapp: "Or write us directly via Whatsapp", gty: "Go to your",
+      awu: "and write us", connect: "Connect now", button: "Click Me!", device: "everywhere", logo: "ImgAssets/Logo.png",
+      person: "ImgAssets/Logo.png", services: [{ "name": "whatsapp", "content": "+60109128106" }]
+      })
+  </script>
+</section>
+
+</body>
+</html>

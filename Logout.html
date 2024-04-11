@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logout</title>
+    <script type="text/javascript">
+        function logout() {
+            // Display a confirmation dialog
+            var confirmLogout = confirm("You have successfully logged out. Click OK to return to the login page.");
+            if (confirmLogout) {
+                // Redirect to the login page
+                window.location.href = "Login.html";
+            }
+        }
+        // Call the logout function when the page loads
+        window.onload = logout;
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>
