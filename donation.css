@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #000000;
+  }
+  
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  select,
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button[type="submit"] {
+    background-color: #6ed450; /* Light green */
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #4ba532; /* Darker green on hover */
+    font-style: oblique;
+  }
+  
+  .column {
+    float: left;
+    width: 46%;
+    color: rgb(0, 0, 0);
+    font-size: large;
+    text-align: left;
+    padding: 2%;
+    line-height: 1.7;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+  }
+  .column2 {
+    float: left;
+    width: 95%;
+    color: rgb(255, 255, 255);
+    font-size: large;
+    text-align: center;
+    padding: 2%;
+    line-height: 1.7;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+  }
+  .column p{
+    font-size: 20px;
+    color:white;
+  }
+  
+  .column h1{
+    color: white;
+    text-align: left;
+  }
+  .column2 h1{
+    color: white;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+  .responsive-img {
+    max-width: 100%;
+    height: auto;
+    }
+    .responsive-img2 {
+        max-width: 60%;
+        height: auto;
+    }
+
+    #thankYouMessage{
+        background-color: #00ff3c;
+        color: black;
+        width: max-content;
+        padding: 3px;
+        border-radius: 5px;
+    }
